@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :item_sizes
   has_many :sizes, through: :item_sizes
 
-  has_one_attached :image  # Ensure this line is included
+  has_one_attached :image
   scope :with_image, -> { joins(image_attachment: :blob) }
 
 end

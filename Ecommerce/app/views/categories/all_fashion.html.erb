@@ -46,6 +46,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container content-container">
     <h1>All Fashion</h1>
@@ -53,6 +54,7 @@
       <% @items.each do |item| %>
         <div class="col-md-4 mb-4">
           <div class="card h-100 item-box">
+
             <% if item.image.attached? %>
               <%= image_tag url_for(item.image), class: "card-img-top" %>
             <% end %>
@@ -68,7 +70,6 @@
     </div>
     <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home mt-4' %>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

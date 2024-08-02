@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
-  get 'men_fashion', to: 'pages#men_fashion'
-  get 'women_fashion', to: 'pages#women_fashion', as: 'women_fashion'
-  get 'all_fashion', to: 'pages#all_fashion', as: 'all_fashion'
+  get 'categories/men_fashion', to: 'categories#men_fashion'
+  get 'categories/women_fashion', to: 'categories#women_fashion'
+  get 'categories/all_fashion', to: 'categories#all_fashion'
 
   # Root route
   root 'pages#index'
