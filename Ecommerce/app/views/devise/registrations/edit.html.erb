@@ -9,7 +9,6 @@
 
   <div class="form-group">
     <%= f.label :password, class: 'form-label' %>
-
     <% if @minimum_password_length %>
       <small class="form-text text-muted">(Minimum length: <%= @minimum_password_length %> characters)</small>
     <% end %>
@@ -24,9 +23,9 @@
   <div class="form-group text-center">
     <%= f.submit "Sign Up", class: 'btn btn-primary btn-lg btn-block' %>
   </div>
-  
 <% end %>
 <%= render "devise/shared/links" %>
+
 <!-- Add custom CSS for further adjustments -->
 <style>
   .form-signup {
