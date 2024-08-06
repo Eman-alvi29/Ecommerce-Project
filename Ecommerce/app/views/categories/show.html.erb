@@ -9,8 +9,8 @@
       <% else %>
         All Items - DevdenAura
       <% end %>
-
     </title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9NdYTduHfA3VwXSL7gZ05XCB7dUcbXlNWUJmF3xdDO5hyyOB0U/NFF4HvZ7jWcD9" crossorigin="anonymous">
     <style>
       body {
@@ -63,6 +63,7 @@
           All Items
         <% end %>
       </h1>
+
       <div class="row">
         <% if @items.present? %>
           <% @items.each do |item| %>
@@ -73,6 +74,7 @@
                 <% else %>
                   <p>No image available</p>
                 <% end %>
+
                 <div class="card-body">
                   <h5 class="card-title"><%= item.name %></h5>
                   <p class="card-text"><%= item.description %></p>
@@ -86,6 +88,7 @@
           <p>No items found for this category.</p>
         <% end %>
       </div>
+
       <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home mt-4' %>
     </div>
 
