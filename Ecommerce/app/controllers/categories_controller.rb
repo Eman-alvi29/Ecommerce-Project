@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def index
-    @category = params[:category]
-    @items = @category.present? ? Item.where(category: @category) : Item.all
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 
   def show
