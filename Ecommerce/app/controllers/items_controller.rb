@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  def set_ransack_search
-    @q = Item.ransack(params[:q])
-  end
+   def set_ransack_search
+     @q = Item.ransack(params[:q])
+   end
 end
