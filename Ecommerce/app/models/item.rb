@@ -9,5 +9,4 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   scope :with_image, -> { joins(image_attachment: :blob) }
-
 end
