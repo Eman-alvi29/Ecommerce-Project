@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
       <% if @category.present? %>
-        <%= @category.capitalize %> Fashion - DevdenAura
+        <%= @category.name %> Fashion - DevdenAura
       <% else %>
         All Items - DevdenAura
       <% end %>
@@ -27,8 +27,8 @@
       }
       .item-box img {
         width: 100%;
-        height: 150px; /* Adjust height for smaller images */
-        object-fit: contain; /* Ensure the whole image is visible */
+        height: 200px; /* Set equal height */
+        object-fit: contain; /* Ensure the whole image is visible without cutting it off */
         border-radius: 10px;
       }
       .item-box h5 {
@@ -51,45 +51,33 @@
       .card-body {
         padding: 10px; /* Add padding for a cleaner look */
       }
-    </style>
+   </style>
   </head>
 
   <body>
     <div class="container content-container">
-      <h1>
-        <% if @category.present? %>
-          <%= @category.capitalize %> Fashion
-        <% else %>
-          All Items
-        <% end %>
-      </h1>
-
-      <div class="row">
-        <% if @items.present? %>
+      <h1 class="text-center my-4">Items</h1>
+      <div class="container">
+        <div class="row">
           <% @items.each do |item| %>
             <div class="col-md-4 mb-4">
               <div class="card h-100 item-box">
                 <% if item.image.attached? %>
                   <%= image_tag url_for(item.image), class: "card-img-top" %>
-                <% else %>
-                  <p>No image available</p>
                 <% end %>
 
                 <div class="card-body">
                   <h5 class="card-title"><%= item.name %></h5>
                   <p class="card-text"><%= item.description %></p>
                   <p class="card-text"><strong>Price:</strong> <%= number_to_currency(item.price) %></p>
-                  <button class="btn btn-success">Add to Cart</button>
                 </div>
               </div>
             </div>
           <% end %>
-        <% else %>
-          <p>No items found for this category.</p>
-        <% end %>
-      </div>
 
-      <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home mt-4' %>
+        </div>
+        <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home mt-4' %>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

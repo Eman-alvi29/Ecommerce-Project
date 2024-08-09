@@ -5,7 +5,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = params[:id]
-    @items = Item.where(category: @category)
+    @category = Category.find(params[:id])
+    @q = @category.items.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 end

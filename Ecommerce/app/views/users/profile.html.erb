@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Profile</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <style>
+      body {
+        background-color: #f4e8e1; /* Light background color for contrast */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Full viewport height */
+      }
+      .navbar {
+        background-color: #8d6e63; /* Dark light brown background */
+      }
+      .profile-container {
+        background-color: #8d6e63; /* Dark light brown background */
+        color: #fff; /* White text color */
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 20px auto; /* Center the box horizontally */
+        text-align: center; /* Center text inside the box */
+        flex: 1; /* Allow this container to grow and fill remaining space */
+      }
+      .profile-container h1 {
+        margin-bottom: 20px;
+      }
+      .btn-custom {
+        background-color: #4e342e; /* Dark brown color */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        text-decoration: none; /* Remove underline from link */
+      }
+      .btn-custom:hover {
+        background-color: #3e2723; /* Darker brown on hover */
+      }
+      .btn-back-home {
+        background-color: #3e2723;
+        color: white;
+      }
+    </style>
+
+  <body>
+    <div class="profile-container">
+      <h1>User Profile</h1>
+      <p>Email: <%= current_user.email %></p>
+      <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-custom' %>
+      <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home' %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
