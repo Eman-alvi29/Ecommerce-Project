@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   devise_for :users
   get 'profile', to: 'users#profile', as: :user_profile
   root 'welcome#index'
-  resources :categories, only: [:index, :show] do
+  # resources :categories, only: [:index, :show] do
   resources :items, only: [:index]
-  end
+  # end
   # get 'categories/:category', to: 'categories#show', as: 'category_items'
   #  get 'categories', to: 'categories#index', as: 'categories'
   #  get 'categories/:id', to: 'categories#show', as: 'category'
