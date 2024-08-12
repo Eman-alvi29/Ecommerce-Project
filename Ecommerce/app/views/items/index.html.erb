@@ -58,37 +58,38 @@
     <div class="container content-container">
      <h1>All Items</h1>
 
-     <div class="row">
-       <% if @items.present? %>
-         <% @items.each do |item| %>
-           <div class="col-md-4 mb-4">
-             <div class="card h-100 item-box">
-              <% if item.image.attached? %>
-                <%= image_tag url_for(item.image), class: "card-img-top" %>
-              <% else %>
-                <p>No image available</p>
-              <% end %>
+      <div class="row">
+        <% if @items.present? %>
+          <% @items.each do |item| %>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 item-box">
+                <% if item.image.attached? %>
+                  <%= image_tag url_for(item.image), class: "card-img-top" %>
+                <% else %>
+                  <p>No image available</p>
+                <% end %>
 
-              <div class="card-body">
-                <h5 class="card-title"><%= item.name %></h5>
-                <p class="card-text"><%= item.description %></p>
-                <p class="card-text"><strong>Price:</strong> <%= number_to_currency(item.price) %></p>
-                <button class="btn btn-success">Add to Cart</button>
+                <div class="card-body">
+                  <h5 class="card-title"><%= item.name %></h5>
+                  <p class="card-text"><%= item.description %></p>
+                  <p class="card-text"><strong>Price:</strong> <%= number_to_currency(item.price) %></p>
+                  <button class="btn btn-success">Add to Cart</button>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <p>No items available</p>
         <% end %>
-       <% else %>
-         <p>No items available</p>
-       <% end %>
-        </div>
-        <div class="pag-bar d-flex justify-content-center mt-4"
-        <%== pagy_bootstrap_nav(@pagy) %>
-     </div>
 
-     <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home mt-4' %>
+        <div class="pag-bar d-flex justify-content-center mt-4"
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+
+        <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home mt-4' %>
+      </div>
    </div>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
