@@ -81,6 +81,9 @@
        <% else %>
          <p>No items available</p>
        <% end %>
+        </div>
+        <div class="pag-bar d-flex justify-content-center mt-4"
+        <%== pagy_bootstrap_nav(@pagy) %>
      </div>
 
      <%= link_to 'Back to Home', root_path, class: 'btn btn-back-home mt-4' %>

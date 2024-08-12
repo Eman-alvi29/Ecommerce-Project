@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_ransack_search, only: [:index, :show]
 
   def index
-    @items = @q.result(distinct: true)
+    @pagy, @items = pagy(@q.result(distinct: true))
     @categories = Category.all
   end
 
