@@ -1,0 +1,23 @@
+<h1>Your Cart</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.item.name %></td>
+        <td><%= order_item.quantity %></td>
+        <td><%= number_to_currency(order_item.item.price) %></td>
+        <td><%= number_to_currency(order_item.item.price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

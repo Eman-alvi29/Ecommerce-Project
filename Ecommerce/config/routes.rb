@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#profile', as: :user_profile
   root 'welcome#index'
   # resources :categories, only: [:index, :show] do
-  resources :items, only: [:index]
+  resources :items, only: [:index, :show]
+  # or use resources if appropriate:
+  resources :orders do
+    get 'add_to_cart', on: :collection
+  end
   # end
   # get 'categories/:category', to: 'categories#show', as: 'category_items'
   #  get 'categories', to: 'categories#index', as: 'categories'

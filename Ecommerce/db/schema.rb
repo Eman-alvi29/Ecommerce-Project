@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_01_072218) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_13_062711) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_01_072218) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "in_stock"
     t.index ["item_id"], name: "index_item_sizes_on_item_id"
     t.index ["size_id"], name: "index_item_sizes_on_size_id"
   end
@@ -88,6 +89,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_01_072218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id", null: false
+    t.integer "stock_quantity"
     t.index ["category_id"], name: "index_items_on_category_id"
   end
 
