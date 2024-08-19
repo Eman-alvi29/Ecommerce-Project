@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   # resources :categories, only: [:index, :show] do
   resources :items, only: [:index, :show]
   # or use resources if appropriate:
-  resources :orders do
+  resources :orders  do
     get 'add_to_cart', on: :collection
+    resources :order_items, only: [:destroy]
   end
   # end
   # get 'categories/:category', to: 'categories#show', as: 'category_items'
