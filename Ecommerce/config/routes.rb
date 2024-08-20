@@ -1,26 +1,23 @@
 Rails.application.routes.draw do
+  get "static/about_us"
+  get "static/contact_us"
+  get "about_us", to: "static#about_us"
+  get "contact_us", to: "static#contact_us"
+  resources :categories, only: [:index, :show]  # Adjust as needed
+
+  # Existing routes
   get "users/profile"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
   get 'profile', to: 'users#profile', as: :user_profile
   root 'welcome#index'
-  # resources :categories, only: [:index, :show] do
   resources :items, only: [:index, :show]
-  # or use resources if appropriate:
-  resources :orders  do
+  resources :orders do
     get 'add_to_cart', on: :collection
     resources :order_items, only: [:destroy]
   end
-  # end
-  # get 'categories/:category', to: 'categories#show', as: 'category_items'
-  #  get 'categories', to: 'categories#index', as: 'categories'
-  #  get 'categories/:id', to: 'categories#show', as: 'category'
-  # Root route
   get "up" => "rails/health#show", as: :rails_health_check
-  # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

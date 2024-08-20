@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us | Devden Aura</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+  <%= javascript_importmap_tags %>
+  <style>
+    .about-us {
+      text-align: center;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .about-us h1 {
+      color: #4e342e; /* Dark brown color */
+      margin-bottom: 20px;
+    }
+    .about-us p {
+      font-size: 18px;
+      color: #3e2723; /* Slightly darker brown for text */
+      line-height: 1.6;
+    }
+    .btn-back {
+      background-color: #4e342e;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .btn-back:hover {
+      background-color: #3e2723;
+    }
+  </style>
+</head>
+<body>
+  <div class="container about-us">
+    <h1>About Us</h1>
+    <p>Welcome to Devden Aura, where fashion meets innovation. At Devden Aura, we believe that clothing is more than just fabric—it's a statement. We are dedicated to crafting high-quality apparel that reflects elegance and style.</p>
+    <p>Our team of passionate designers and artisans work tirelessly to bring you the latest trends and timeless classics. We are committed to sustainability and ethical practices, ensuring that every piece you wear is as kind to the planet as it is to your wardrobe.</p>
+    <p>Explore our collections and experience the perfect blend of comfort, quality, and sophistication. Thank you for choosing Devden Aura, where every garment is a work of art.</p>
+    <%= link_to 'Back to Home', root_path, class: 'btn-back' %>
+  </div>
+</body>
+</html>

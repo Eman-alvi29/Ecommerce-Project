@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us | Devden Aura</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+  <%= javascript_importmap_tags %>
+  <style>
+    .contact-us {
+      text-align: center;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .contact-us h1 {
+      color: #4e342e; /* Dark brown color */
+      margin-bottom: 20px;
+    }
+    .contact-us p {
+      font-size: 18px;
+      color: #3e2723; /* Slightly darker brown for text */
+      line-height: 1.6;
+    }
+    .contact-us a {
+      color: #4e342e; /* Dark brown color for links */
+      text-decoration: none;
+    }
+    .contact-us a:hover {
+      text-decoration: underline;
+    }
+    .btn-back {
+      background-color: #4e342e;
+      color: white; /* White text color */
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .btn-back:hover {
+      background-color: #3e2723;
+    }
+  </style>
+</head>
+<body>
+  <div class="container contact-us">
+    <h1>Contact Us</h1>
+    <p>If you have any questions or need further assistance, feel free to reach out to us:</p>
+    <p>Email: <a href="mailto:devdenaura@gmail.com">devdenaura@gmail.com</a></p>
+    <p>Phone: <a href="tel:+923301356889">0330 135 6889</a></p>
+    <%= link_to 'Back to Home', root_path, class: 'btn-back' %>
+  </div>
+</body>
+</html>
