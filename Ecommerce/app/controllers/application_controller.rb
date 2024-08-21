@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
   def create_order
     current_user.orders.create(status: 'Pending')
   end

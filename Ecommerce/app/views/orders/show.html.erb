@@ -30,4 +30,5 @@
 
 <div class="mt-3">
   <%= link_to 'Back to Home', root_path, class: 'btn btn-primary' %>
+  <%= link_to 'Proceed to Payment', new_order_payment_path(order_id: @order.id), class: 'btn btn-success' %>
 </div>
