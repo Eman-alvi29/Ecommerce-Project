@@ -1,11 +1,5 @@
 class OrderItemsController < ApplicationController
   def create
-    puts "OrderItemsController#create reached"
-    @order = current_order
-    @order_item = @order.order_items.new(order_item_params)
-    puts "Order: #{@order.inspect}"
-    puts "OrderItem: #{@order_item.inspect}"
-
     if @order.save
       puts "Order saved successfully"
       redirect_to cart_path, notice: 'Item added to cart.'

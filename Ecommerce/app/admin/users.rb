@@ -1,6 +1,9 @@
 ActiveAdmin.register User do
+  permit_params :email, :password, :password_confirmation
 
-  # Index page
+  filter :email
+  filter :created_at
+
   index do
     selectable_column
     id_column
@@ -9,7 +12,6 @@ ActiveAdmin.register User do
     actions
   end
 
-  # Show page
   show do
     attributes_table do
       row :email
@@ -18,25 +20,10 @@ ActiveAdmin.register User do
     end
   end
 
-  # Form for creating and editing users
   form do |f|
     f.inputs do
       f.input :email
-      # If you want to include other fields, add them here
-      # f.input :first_name
-      # f.input :last_name
-      # If you're handling password manually, include it like this:
-      # f.input :password
-      # f.input :password_confirmation
     end
     f.actions
   end
-
-  # Permit parameters for mass assignment
-  permit_params :email, :password, :password_confirmation
-
-  # Optional: custom filters for search
-  filter :email
-  filter :created_at
-
 end

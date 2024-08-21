@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_13_062711) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_21_110812) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -77,7 +77,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_13_062711) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "in_stock"
+    t.integer "in_stock"
     t.index ["item_id"], name: "index_item_sizes_on_item_id"
     t.index ["size_id"], name: "index_item_sizes_on_size_id"
   end
@@ -115,11 +115,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_13_062711) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "oder_id", null: false
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["oder_id"], name: "index_payments_on_oder_id"
+    t.integer "order_id"
+    t.string "name"
+    t.string "email"
+    t.string "address"
+    t.string "phone_number"
+    t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
   create_table "sizes", force: :cascade do |t|
@@ -148,5 +152,4 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_13_062711) do
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
-  add_foreign_key "payments", "oders"
 end
